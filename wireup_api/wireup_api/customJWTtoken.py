@@ -12,10 +12,10 @@ class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
         token['username'] = user.username
         token['email'] = user.email
         
-        # if user.groups.filter(name='tutor').exists():
-        #     token['role'] = 'tutor'
-        # elif user.groups.filter(name='student').exists():
-        #     token['role'] = 'student'
+        if user.groups.filter(name='general').exists():
+            token['role'] = 'general'
+        elif user.groups.filter(name='administrator').exists():
+            token['role'] = 'administrator'
             
         return token
 
