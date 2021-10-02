@@ -27,5 +27,6 @@ urlpatterns = [
     path('api/token/refresh/', MyTokenObtainPairView.as_view(), name='token_refresh'),
     
     path('hello/',views.HelloView.as_view()),
+    path('', include('frontend.urls')),
     
 ]
